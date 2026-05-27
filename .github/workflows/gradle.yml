@@ -52,3 +52,8 @@ jobs:
 
     - name: Test sdk
       run: 'gcloud info'
+
+    - name: Set up Docker
+      uses: docker/setup-docker-action@v5
+      run: 'docker'
+
