@@ -59,7 +59,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-          docker build -f ./Dockerfile -t $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE
+          docker build -f ./Dockerfile -t $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE .
 
     - name: Push Docker image
       run: |
