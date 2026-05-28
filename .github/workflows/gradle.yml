@@ -55,7 +55,8 @@ jobs:
 
     - name: Set up Docker
       uses: docker/setup-docker-action@v5
-      
+    - name: Commands
+      run: 'pwd && cd $GITHUB_WORKSPACE'
     - name: Run docker
       run: 'docker'
 
