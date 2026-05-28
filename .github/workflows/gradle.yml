@@ -50,13 +50,19 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
 
-    - name: Test sdk
-      run: 'gcloud info'
+    - name: Configure Docker for Artifact Registry
+      run: |
+          gcloud auth configure-docker $GAR_LOCATION-docker.pkg.dev
 
     - name: Set up Docker
       uses: docker/setup-docker-action@v5
-    - name: Commands
-      run: 'pwd && cd $GITHUB_WORKSPACE'
-    - name: Run docker
-      run: 'docker'
+
+    - name: Build Docker image
+      run: |
+          docker build -f ./Dockerfile -t $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE
+
+    - name: Push Docker image
+      run: |
+          docker push $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE
+
 
