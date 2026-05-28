@@ -16,7 +16,7 @@ on:
 env:
   PROJECT_ID: deployment-springboot
   GAR_LOCATION: northamerica-south1
-  REPOSITORY: cool-repository
+  REPOSITORY: coolrepository
   IMAGE: my-sb-app
 
 jobs:
